@@ -1,0 +1,14 @@
+databaseChangeLog:
+  - changeSet:
+      id: 6
+      author: levin
+      changes:
+        - addColumn:
+            tableName: geo_point
+            columns:
+              - column:
+                  name: country
+                  type: varchar(250)
+              - column:
+                  name: city
+                  type: varchar(250)

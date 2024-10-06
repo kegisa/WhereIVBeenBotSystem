@@ -1,0 +1,3 @@
+ALTER SEQUENCE bot_user_id_seq RESTART WITH 10010;
+ALTER SEQUENCE geo_point_bot_user_id_seq RESTART WITH 10010;
+ALTER SEQUENCE geo_point_id_seq RESTART WITH 10160;

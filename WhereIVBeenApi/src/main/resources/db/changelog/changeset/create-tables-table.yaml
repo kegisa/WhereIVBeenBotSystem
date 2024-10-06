@@ -1,0 +1,71 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: levin
+      changes:
+        - createTable:
+            tableName: bot_user
+            columns:
+              - column:
+                  name: id
+                  type: serial
+                  autoIncrement: true
+                  constraints:
+                    unique: true
+                    nullable: false
+              - column:
+                  name: chat_id
+                  type: bigint
+                  constraints:
+                    nullable: false
+                    unique: true
+              - column:
+                  name: username
+                  type: varchar
+          addPrimaryKey:
+            columnNames: id
+            tableName: bot_user
+          createIndex:
+            tableName: bot_user
+            indexName: bot_user_chat_idx
+            columns:
+              - column:
+                  name: chat_id
+  - changeSet:
+      id: 2
+      author: levin
+      changes:
+        - createTable:
+            tableName: geo_point
+            columns:
+              - column:
+                  name: id
+                  type: serial
+                  autoIncrement: true
+                  constraints:
+                    unique: true
+                    nullable: false
+              - column:
+                  name: longitude
+                  type: float
+                  constraints:
+                    nullable: false
+              - column:
+                  name: latitude
+                  type: float
+                  constraints:
+                    nullable: false
+              - column:
+                  name: bot_user_id
+                  type: serial
+                  constraints:
+                    nullable: false
+          addPrimaryKey:
+            columnNames: id
+            tableName: geo_point
+        - addForeignKeyConstraint:
+            baseColumnNames: bot_user_id
+            baseTableName: geo_point
+            constraintName: bot_user_id_fk
+            referencedColumnNames: id
+            referencedTableName: bot_user

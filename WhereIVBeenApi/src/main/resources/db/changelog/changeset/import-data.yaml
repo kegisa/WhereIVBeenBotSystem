@@ -1,0 +1,64 @@
+databaseChangeLog:
+  - changeSet:
+      id: 7
+      author: levin
+      changes:
+        - loadData:
+            columns:
+              - column:
+                  header: id
+                  index: 1
+                  name: id
+                  type: serial
+              - column:
+                  header: chat_id
+                  index: 2
+                  name: chat_id
+                  type: bigint
+              - column:
+                  header: username
+                  index: 3
+                  name: username
+                  type: varchar
+            file: file/user.csv
+            tableName: bot_user
+            relativeToChangelogFile: true
+  - changeSet:
+      id: 8
+      author: levin
+      changes:
+        - loadData:
+            columns:
+              - column:
+                  header: id
+                  index: 1
+                  name: id
+                  type: serial
+              - column:
+                  header: bot_user_id
+                  index: 2
+                  name: bot_user_id
+                  type: serial
+              - column:
+                  header: longitude
+                  index: 3
+                  name: longitude
+                  type: bigint
+              - column:
+                  header: latitude
+                  index: 4
+                  name: latitude
+                  type: bigint
+              - column:
+                  header: country
+                  index: 5
+                  name: country
+                  type: varchar(250)
+              - column:
+                  header: city
+                  index: 6
+                  name: city
+                  type: varchar(250)
+            file: file/points.csv
+            tableName: geo_point
+            relativeToChangelogFile: true
