@@ -44,3 +44,8 @@ out/
 
 ### Envs files ###
 *.env
+
+### Yamls
+*-secret.yaml
+*-local.yml
+docker-compose.yml
