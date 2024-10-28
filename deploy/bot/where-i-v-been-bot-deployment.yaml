@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: where-i-v-been-bot
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: where-i-v-been-bot
+  template:
+    metadata:
+      labels:
+        app: where-i-v-been-bot
+    spec:
+      containers:
+        - name: where-i-v-been-bot
+          image: kegisa/whereivbeensystembot:amd64
+          imagePullPolicy: Always
+          envFrom:
+            - configMapRef:
+                name: where-i-v-been-bot-configmap
+            - secretRef:
+                name:  where-i-v-been-bot-secret

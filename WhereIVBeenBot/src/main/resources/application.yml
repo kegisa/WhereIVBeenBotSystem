@@ -1,5 +1,5 @@
 geo-point-api:
-  url: api
+  url: ${WHERE_I_V_BEEN_API}
 bot:
   name: WhereIVBeenBot
   token: ${BOT_TOKEN}
