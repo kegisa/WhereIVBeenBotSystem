@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: where-i-v-been-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: where-i-v-been-api
+  template:
+    metadata:
+      labels:
+        app: where-i-v-been-api
+    spec:
+      containers:
+        - name: where-i-v-been-api
+          image: kegisa/whereivbeensystemapi:amd64
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80
+          envFrom:
+            - configMapRef:
+                name: where-i-v-been-api-configmap
+            - secretRef:
+                name:  where-i-v-been-api-secret
