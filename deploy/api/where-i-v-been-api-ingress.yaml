@@ -1,0 +1,26 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: where-i-v-been-api-ingress
+spec:
+  rules:
+    - host: map.viktorlevin.de
+      http:
+        paths:
+          - pathType: Prefix
+            path: "/"
+            backend:
+              service:
+                name: where-i-v-been-api-service
+                port:
+                  number: 80
+    - host: map.victorlevin.com
+      http:
+        paths:
+          - pathType: Prefix
+            path: "/"
+            backend:
+              service:
+                name: where-i-v-been-api-service
+                port:
+                  number: 80
